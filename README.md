@@ -18,3 +18,12 @@ I suggest you use the api through Postman application.
 	- at the drop down in KEY, select File
 	- specify VALUE by selecting file as you want
 	- then hit Send button and see the prediction in the Response
+
+# How to containerize the model
+1. create a docker image named as you want by running the command `$ docker build -t <imageName> .`
+2. create a container by running the image, `$ docker run -p 8000:8000 <imageName>`
+3. check the IPAddress of your running container, `$ docker inspect <containerID> | grep IP`
+4. use the API in Postman app as before but change the url to the IPAddress that you get from step 3 and use the same port (8000), such as http://172.17.0.2:8000. 
+
+# My Docker image 
+You can use my docker image by running the command `$ docker pull woradee/cat_or_not_flaskapi:simple`
